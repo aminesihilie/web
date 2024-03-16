@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Function Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Function Page</h1>
+        <button onclick="runRandomFunction()">Run Random Function</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Array of random functions
+        const randomFunctions = [
+            function() {
+                return "Hello, World!";
+            },
+            function() {
+                return Math.floor(Math.random() * 100);
+            },
+            function() {
+                const colors = ["red", "green", "blue", "yellow", "orange", "purple"];
+                return colors[Math.floor(Math.random() * colors.length)];
+            },
+            function() {
+                const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                return weekdays[new Date().getDay()];
+            }
+            // Add more functions here...
+        ];
+
+        // Function to run a random function from the array
+        function runRandomFunction() {
+            const randomIndex = Math.floor(Math.random() * randomFunctions.length);
+            const randomResult = randomFunctions[randomIndex]();
+            document.getElementById("result").innerText = "Result: " + randomResult;
+        }
+    </script>
+</body>
+</html>
